@@ -14,16 +14,10 @@ import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Getter
-public class DateTime {
+public class DateTime extends BaseTimeEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private Instant createdTime;
-
-    public DateTime(Instant createdTime) {
-        this.createdTime = createdTime;
-    }
 
 }
