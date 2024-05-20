@@ -15,7 +15,7 @@ public class DateTimeService {
 
     @Transactional
     public DateTimeResponse createDateTime() {
-        DateTime dateTime = dateTimeRepository.save(new DateTime());
+        DateTime dateTime = dateTimeRepository.save(new DateTime(Instant.now()));
 
         return new DateTimeResponse(dateTime.getCreatedTime());
     }

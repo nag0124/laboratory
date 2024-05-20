@@ -2,6 +2,7 @@ package nag.laboratory.datetime;
 
 import java.time.Instant;
 
+import javax.persistence.Convert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,8 +23,11 @@ public class DateTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    // 어노테이션 하나면 된다.
-    @CreationTimestamp
+    @Convert(converter = InstantConverter.class)
     private Instant createdTime;
+
+    public DateTime(Instant createdTime) {
+        this.createdTime = createdTime;
+    }
 
 }
