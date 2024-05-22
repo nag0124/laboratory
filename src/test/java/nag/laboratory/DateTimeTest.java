@@ -2,9 +2,6 @@ package nag.laboratory;
 
 import static org.assertj.core.api.Assertions.*;
 
-import java.time.OffsetDateTime;
-import java.time.OffsetTime;
-
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -12,8 +9,6 @@ import org.springframework.boot.test.web.server.LocalServerPort;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import nag.laboratory.datetime.DateTime;
-import nag.laboratory.datetime.DateTimeResponse;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class DateTimeTest {
@@ -37,8 +32,17 @@ public class DateTimeTest {
                 .extract().response();
 
         // then
-        System.out.println(OffsetDateTime.now());
         assertThat(response.jsonPath().getString("createdTime")).isNotNull();
+    }
+
+    @Test
+    void postNGet() {
+        // given
+        RestAssured.post("/date-time");
+
+        // when & then
+        RestAssured.get("/date-time")
+                .then().log().all();
     }
 
 }
