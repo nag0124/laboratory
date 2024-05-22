@@ -23,11 +23,7 @@ public class DateTime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Convert(converter = InstantConverter.class)
+    @CreationTimestamp
     private Instant createdTime;
-
-    public DateTime(Instant createdTime) {
-        this.createdTime = createdTime;
-    }
 
 }
