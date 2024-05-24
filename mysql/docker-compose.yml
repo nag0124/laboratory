@@ -10,7 +10,6 @@ services:
       MYSQL_DATABASE: laboratory
       MYSQL_USER: user
       MYSQL_PASSWORD: admin
-#      TZ: Asia/Seoul
     volumes:
       - ./my.cnf:/etc/mysql/my.cnf
     command:

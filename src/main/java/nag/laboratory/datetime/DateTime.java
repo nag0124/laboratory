@@ -2,7 +2,7 @@ package nag.laboratory.datetime;
 
 import java.time.Instant;
 
-import javax.persistence.Convert;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -24,6 +24,7 @@ public class DateTime {
     private Long id;
 
     @CreationTimestamp
+    @Column(columnDefinition = "TIMESTAMP")
     private Instant createdTime;
 
 }
