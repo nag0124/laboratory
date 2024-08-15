@@ -33,7 +33,7 @@ public class FetchParent {
     @Column()
     private Integer age;
 
-    @OneToMany(mappedBy = "parents", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "parent", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<FetchChild> children;
 
 }
