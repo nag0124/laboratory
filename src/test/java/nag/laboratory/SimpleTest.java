@@ -14,6 +14,9 @@ public class SimpleTest {
         System.out.println(HttpHeaders.class.getClassLoader());
 
         System.out.println(SimpleClass.class.getClassLoader());
+
+        System.out.println(String.class.getClassLoader());
+        System.out.println(java.lang.String.class.getClassLoader());
     }
 
 }
